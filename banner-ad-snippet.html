@@ -1,0 +1,40 @@
+<style>
+  @media screen and (max-width: 550px) {
+      .banner-ad-wrap {
+        display: none;
+      }
+    }
+</style>
+
+<div class="banner-ad-wrap">
+  <script type='text/javascript'>
+    var googletag = googletag || {};
+    googletag.cmd = googletag.cmd || [];
+    var ppRegEx = new RegExp(/ppads-/);
+    var ppMatches = _.filter(window.PlanPhilly.articleTags, function(string){ return ppRegEx.test(string)})
+      if (ppMatches.length) {
+        console.log('got a good tag');
+
+        googletag.cmd.push(function() {
+        googletag.defineSlot('/1050414/planphilly_leaderboard_728x90', [728, 90], 'div-gpt-ad-1430851348219-0').setTargeting('Tags', ppMatches[0]).addService(googletag.pubads());
+        googletag.enableServices();
+        });
+
+        }  
+      else {
+        console.log('no good tag')
+        googletag.cmd.push(function() {
+          googletag.defineSlot('/1050414/planphilly_leaderboard_728x90', [728, 90], 'div-gpt-ad-1430851348219-0').addService(googletag.pubads());
+          googletag.enableServices();
+        });
+      }
+  </script>
+
+  <!-- /1050414/planphilly_leaderboard_728x90 -->
+  <div id='div-gpt-ad-1430851348219-0' style='height:90px; width:728px;'>
+    <script type='text/javascript'>
+      googletag.cmd.push(function() { googletag.display('div-gpt-ad-1430851348219-0'); });
+    </script>
+  </div>
+
+</div>  <!-- closes div = banner-ad-wrap  -->
